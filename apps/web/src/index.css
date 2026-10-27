@@ -1,0 +1,132 @@
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: Cobalt (by request) · redesign: full
+ * nav: edge-aligned header with live telemetry · signature: keycap controls on cool paper with cobalt signals · states: normal, hover, active, focus-visible
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: H, keycap tactile depth and cut-corner panels */
+@import url("./tokens.css");
+@import url("./base.css");
+@import "tailwindcss";
+
+@theme {
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-paper-3: var(--color-paper-3);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-muted: var(--color-muted);
+  --color-rule: var(--color-rule);
+  --color-rule-2: var(--color-rule-2);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-accent-wash: var(--color-accent-wash);
+  --color-graphite: var(--color-graphite);
+  --color-graphite-ink: var(--color-graphite-ink);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-outlier: var(--font-outlier);
+}
+
+/* Keycap button styles */
+.keycap-btn {
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: var(--radius-input);
+  background: var(--color-key-face);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-key);
+  transition-property: transform, box-shadow, background-color;
+  transition-duration: var(--dur-micro);
+  transition-timing-function: var(--ease-out);
+}
+
+.keycap-btn:hover {
+  transform: translateY(-1px);
+}
+
+.keycap-btn:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-key-press);
+}
+
+.keycap-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent-edge);
+  color: var(--color-accent-ink);
+  box-shadow: var(--shadow-key-accent);
+}
+
+.keycap-primary:hover {
+  transform: translateY(-1px);
+}
+
+.keycap-primary:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-key-press);
+}
+
+/* Cut panel styling */
+.cut-panel {
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+  background: var(--color-paper-2);
+  box-shadow: var(--shadow-card);
+}
+
+@supports (corner-shape: bevel) {
+  .cut-panel {
+    border-radius: var(--cut-l) 4px var(--cut-l) 4px;
+    corner-shape: bevel round bevel round;
+  }
+}
+
+/* Graphite code container */
+.graphite-code {
+  background: var(--color-graphite);
+  color: var(--color-graphite-ink);
+  border: var(--rule-hair) solid var(--color-rule-2);
+}
+
+/* Custom scrollbar matching Cobalt aesthetic */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-rule-2);
+}
+
+/* Clean text input focus: eliminate detached offset blue outlines */
+textarea, input[type="text"] {
+  outline: none !important;
+}
+
+textarea:focus-visible, input[type="text"]:focus-visible {
+  outline: none !important;
+}
+
+/* Message prose hierarchy and tight spacing rules */
+.message-prose > *:first-child {
+  margin-top: 0 !important;
+}
+
+.message-prose > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.message-prose li > p {
+  margin-bottom: var(--space-2xs);
+}
+
+.message-prose li > p:last-child {
+  margin-bottom: 0;
+}
+
+.message-prose li > ul,
+.message-prose li > ol {
+  margin-top: var(--space-2xs);
+  margin-bottom: var(--space-2xs);
+}
+

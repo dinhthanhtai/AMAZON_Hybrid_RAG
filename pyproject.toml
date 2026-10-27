@@ -1,0 +1,12 @@
+[project]
+name = "code2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+managed = true
+# Khai báo các thư mục chứa các app/package trong monorepo
+workspace = { members = ["apps/api", "packages/*"] }
